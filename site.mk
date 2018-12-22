@@ -1,33 +1,34 @@
-GLUON_SITE_PACKAGES := \
-	gluon-respondd\
-	gluon-autoupdater \
-	gluon-config-mode-autoupdater \
-	gluon-config-mode-contact-info \
-	gluon-config-mode-core \
-	gluon-config-mode-geo-location \
-	gluon-config-mode-hostname \
-	gluon-ebtables-filter-multicast \
-	gluon-ebtables-filter-ra-dhcp \
-	gluon-ebtables-source-filter \
-	gluon-web-admin \
-	gluon-web-autoupdater \
-	gluon-web-network \
-	gluon-web-private-wifi \
-	gluon-web-wifi-config \
-	gluon-mesh-batman-adv-15 \
-	gluon-mesh-vpn-tunneldigger \
-	gluon-radvd \
-	gluon-setup-mode \
-	gluon-status-page \
-	haveged \
-	iptables \
-	gluon-mesh-vpn-core \
-	iwinfo \
-	gluon-ssid-changer \
-	gluon-config-mode-show-mac \
-	gluon-rfkill-disable
+## Freifunk Muensterland
 
-GLUON_PRIORITY ?= 3
+GLUON_FEATURES := \
+	autoupdater \
+	ebtables-filter-multicast \
+	ebtables-filter-ra-dhcp \
+	ebtables-limit-arp \
+	ebtables-source-filter \
+	mesh-batman-adv-15 \
+	mesh-vpn-tunneldigger \
+	radvd \
+	respondd \
+	status-page \
+	web-advanced \
+	web-wizard \
+        web-private-wifi \
+	ssid-changer \
+        rfkill-disable \
+	advancedstats \
+	config-mode-statistics
+
+GLUON_SITE_PACKAGES := haveged iwinfo iptables
+
+DEFAULT_GLUON_RELEASE := 2018.1+exp$(shell date '+%Y%m%d')
+
+GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
+
+GLUON_PRIORITY ?= 0
+
+GLUON_REGION ?= eu
+
 GLUON_LANGS ?= en de
-GLUON_ATH10K_MESH := ibss
-GLUON_REGION := eu
+
+##GLUON_WLAN_MESH := ibss
